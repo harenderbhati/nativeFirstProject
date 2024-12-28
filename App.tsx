@@ -8,10 +8,12 @@ import {
   StyleSheet,
   TextInput,
   FlatList,
-  ScrollView
+  ScrollView,
+  SectionList
 } from 'react-native';
 import CompanyData from './components/companyData';
 import ExStyles from './style'
+import UserData from './components/UserData';
 
 
 function App(): React.JSX.Element {
@@ -41,74 +43,66 @@ function App(): React.JSX.Element {
    const employiesDetails=[
     {
       name:"Harry",
+      data:["PHP","Js","Angular"],
       email:"harrythakur@gmail.com",
       id:1
     },
     {
       name:"Karishma",
+      data:["PHP","Js","Angular","Golang"],
       email:"harrythakur@gmail.com",
       id:2
     },
     {
       name:"Nishu",
+      data:["Go","Rust","Ruby"],
       email:"harrythakur@gmail.com",
       id:3
     },
     {
       name:"Shilpa",
+      data:["PHP","React","Next"],
       email:"harrythakur@gmail.com",
       id:40
     },
     {
       name:"Sonu",
+      data:["Android","Java","native"],
       email:"harrythakur@gmail.com",
       id:47
     },
-    {
-      name:"Kunal",
-      email:"harrythakur@gmail.com",
-      id:49
-    },
-    {
-      name:"Raju",
-      email:"harrythakur@gmail.com",
-      id:41
-    },
-    {
-      name:"Shyam",
-      email:"harrythakur@gmail.com",
-      id:42
-    },
-    {
-      name:"Birjesh",
-      email:"harrythakur@gmail.com",
-      id:429
-    },
-    {
-      name:"Jiya",
-      email:"harrythakur@gmail.com",
-      id:422
-    },
-    {
-      name:"JiyaSH;",
-      email:"harrythakur@gmail.com",
-      id:422
-    },
-    {
-      name:"JiyaJJI",
-      email:"harrythakur@gmail.com",
-      id:422233
-    },
-    {
-      name:"JiyaKMS",
-      email:"harrythakur@gmail.com",
-      id:4221
-    },
-    {
-      name:"Jiya",
-      email:"harrythakur@gmail.com",
-      id:42289
-    },
+    // {
+    //   name:"Kunal",
+    //   email:"harrythakur@gmail.com",
+    //   id:49
+    // },
+    // {
+    //   name:"Raju",
+    //   email:"harrythakur@gmail.com",
+    //   id:41
+    // },
+    // {
+    //   name:"Shyam",
+    //   email:"harrythakur@gmail.com",
+    //   id:42
+    // },
+    // {
+    //   name:"Birjesh",
+    //   email:"harrythakur@gmail.com",
+    //   id:429
+    // },
+    // {
+    //   name:"Jiya",
+    //   email:"harrythakur@gmail.com",
+    //   id:422
+    // },
+    // {
+    //   name:"JiyaSH;",
+    //   email:"harrythakur@gmail.com",
+    //   id:422
+    // },
+    
+   
     
    ]
 
@@ -158,30 +152,39 @@ function App(): React.JSX.Element {
           : null
         }
         </View> */}
-        <View>
+        {/* <View>
           <FlatList
           data={employiesDetails}
-          renderItem={({item})=> <View style={styles.box}> 
-          <Text style={styles.item}>{item.name}</Text>
-          <Text style={styles.item}>{item.email}</Text>
-            </View>
-        }
-          // keyExtractor={item=>item.id}
+          renderItem={({item})=> <UserData item={item} />}
+         
           />
-          {/* <ScrollView>
+          <ScrollView>
             <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
 
           {
             employiesDetails.map((items,index)=><Text style={styles.mapList}>{items.name}</Text>)
           }
           </View>
-          </ScrollView> */}
+          </ScrollView>
+        </View> */}
+
+        <View>
+          <SectionList
+          sections={employiesDetails}
+           renderItem={({item})=><Text style={{fontSize:24,marginLeft:20}}>{item}</Text>}
+           renderSectionHeader={({section:{name}})=><Text style={{fontSize:30, color:'red',}}>{name}</Text>}
+          />
         </View>
         
     </View>
   );
 
 }
+
+
+
+
+
 const styles = StyleSheet.create({
   textbox:{
     fontSize:32,
@@ -221,6 +224,7 @@ const styles = StyleSheet.create({
     width:80
   }
 })
+
 
 
 export default App;
