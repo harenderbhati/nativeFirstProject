@@ -11,9 +11,10 @@ import {
   ScrollView,
   SectionList
 } from 'react-native';
-import CompanyData from './components/companyData';
+import CompanyData from './components/CompanyData';
 import ExStyles from './style'
 import UserData from './components/UserData';
+import Responsive from './components/Responsive';
 
 
 function App(): React.JSX.Element {
@@ -104,11 +105,12 @@ function App(): React.JSX.Element {
     
    
     
-   ]
-
+  ]
+  
   return (
     
-    <View>
+    <View style={{flex:1}}>
+      <Responsive/>
       {/* <Text style={{fontSize:30}}>Hello React Native</Text>
       <Text style={styles.textbox}>Like</Text>
       <Text style={ExStyles.textbox}>Share</Text>
@@ -167,14 +169,15 @@ function App(): React.JSX.Element {
           </View>
           </ScrollView>
         </View> */}
-
+{/* 
         <View>
           <SectionList
           sections={employiesDetails}
            renderItem={({item})=><Text style={{fontSize:24,marginLeft:20}}>{item}</Text>}
            renderSectionHeader={({section:{name}})=><Text style={{fontSize:30, color:'red',}}>{name}</Text>}
           />
-        </View>
+        </View> */}
+
         
     </View>
   );

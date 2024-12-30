@@ -1,6 +1,6 @@
 import { Text, View } from "react-native"
 
-const  companyData=()=>{
+const  CompanyData=()=>{
     return(
         <View>
             <Text style={{fontSize:30}}> Name: Harry</Text>
@@ -11,4 +11,4 @@ const  companyData=()=>{
     )
 }
 
-export default companyData;
+export default CompanyData;
