@@ -20,6 +20,7 @@ import RadioButtonComponent from './components/RadioButtonComponent';
 import DynamicRadioButtons from './components/DynamicRadioButtons';
 import ActivityLoader from './components/ActivityLoader';
 import ModalComponent from './components/ModalComponent';
+import PressableComponent from './components/PressableComponent';
 
 
 function App(): React.JSX.Element {
@@ -120,7 +121,8 @@ function App(): React.JSX.Element {
       {/* <RadioButtonComponent/> */}
       {/* <DynamicRadioButtons/> */}
       {/* <ActivityLoader/> */}
-      <ModalComponent/>
+      {/* <ModalComponent/> */}
+      <PressableComponent/>
       {/* <Text style={{fontSize:30}}>Hello React Native</Text>
       <Text style={styles.textbox}>Like</Text>
       <Text style={ExStyles.textbox}>Share</Text>
