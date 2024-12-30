@@ -16,6 +16,7 @@ import ExStyles from './style'
 import UserData from './components/UserData';
 import Responsive from './components/Responsive';
 import ButtonComponent from './components/ButtonComponent';
+import RadioButtonComponent from './components/RadioButtonComponent';
 
 
 function App(): React.JSX.Element {
@@ -110,9 +111,10 @@ function App(): React.JSX.Element {
   
   return (
     
-    <View style={{flex:1}}>
+    <View style={{flex:1 ,}}>
       {/* <Responsive/> */}
-      <ButtonComponent/>
+      {/* <ButtonComponent/> */}
+      <RadioButtonComponent/>
       {/* <Text style={{fontSize:30}}>Hello React Native</Text>
       <Text style={styles.textbox}>Like</Text>
       <Text style={ExStyles.textbox}>Share</Text>
