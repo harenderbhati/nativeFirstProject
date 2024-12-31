@@ -9,7 +9,8 @@ import {
   TextInput,
   FlatList,
   ScrollView,
-  SectionList
+  SectionList,
+  StatusBar
 } from 'react-native';
 import CompanyData from './components/CompanyData';
 import ExStyles from './style'
@@ -115,7 +116,10 @@ function App(): React.JSX.Element {
   
   return (
     
-    <View style={{flex:1 ,}}>
+    <View style={{flex:1 ,}}>/
+    <StatusBar backgroundColor={'orange'}
+      barStyle={'default'}
+     />
       {/* <Responsive/> */}
       {/* <ButtonComponent/> */}
       {/* <RadioButtonComponent/> */}
