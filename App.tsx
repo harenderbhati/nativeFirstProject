@@ -22,6 +22,7 @@ import DynamicRadioButtons from './components/DynamicRadioButtons';
 import ActivityLoader from './components/ActivityLoader';
 import ModalComponent from './components/ModalComponent';
 import PressableComponent from './components/PressableComponent';
+import PlatFormComponent from './components/PlatformComponent';
 
 
 function App(): React.JSX.Element {
@@ -120,6 +121,7 @@ function App(): React.JSX.Element {
     <StatusBar backgroundColor={'orange'}
       barStyle={'default'}
      />
+     <PlatFormComponent/>
       {/* <Responsive/> */}
       {/* <ButtonComponent/> */}
       {/* <RadioButtonComponent/> */}
