@@ -5,7 +5,7 @@ const PlatFormComponent =()=>{
     return(
         <View style={styles.main}>
            <Text style={{fontSize:30}}>Platform : {Platform.OS}</Text>
-           <WebView source={{uri:"https://github.com/harenderbhati/nativeFirstProject"}} />
+           <WebView source={{uri:"https://reactnavigation.org/docs/hello-react-navigation"}} />
         </View>
     )
 }

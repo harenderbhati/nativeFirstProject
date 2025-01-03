@@ -23,6 +23,8 @@ import ActivityLoader from './components/ActivityLoader';
 import ModalComponent from './components/ModalComponent';
 import PressableComponent from './components/PressableComponent';
 import PlatFormComponent from './components/PlatformComponent';
+import {NavigationContainer} from "@react-navigation/native"
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 function App(): React.JSX.Element {
@@ -32,6 +34,8 @@ function App(): React.JSX.Element {
   const [email,setEmail]=useState('')
   const [display,setDisplay]=useState(false)
   const [showPassword,setShowPassword]=useState(false)
+
+  const stack =createNativeStackNavigator();
 
    const fruit =()=>{
     console.warn("Hello world");
@@ -116,94 +120,123 @@ function App(): React.JSX.Element {
   ]
   
   return (
+
+    <NavigationContainer>
+      <stack.Navigator>
+      <stack.Screen name='Login' component={Login}/>
+      <stack.Screen name='Home' component={Home}/>
+      </stack.Navigator>
+    </NavigationContainer>
+
     
-    <View style={{flex:1 ,}}>/
-    <StatusBar backgroundColor={'orange'}
-      barStyle={'default'}
-     />
-     <PlatFormComponent/>
-      {/* <Responsive/> */}
-      {/* <ButtonComponent/> */}
-      {/* <RadioButtonComponent/> */}
-      {/* <DynamicRadioButtons/> */}
-      {/* <ActivityLoader/> */}
-      {/* <ModalComponent/> */}
-      <PressableComponent/>
-      {/* <Text style={{fontSize:30}}>Hello React Native</Text>
-      <Text style={styles.textbox}>Like</Text>
-      <Text style={ExStyles.textbox}>Share</Text>
-      <Text style={{fontSize:30}}>Comment!!!</Text>
-      <CompanyData/>
-      <Button title='On Press Event' onPress={fruit}  color={'green'} />
-      <Text style={{fontSize:30, color:'green'}}>Your name is:{name}</Text> */}
-      {/* <Text style={{fontSize:25, color:'green', textAlign:'center'}}>Handle Form Data</Text>
-      <TextInput
-      placeholder='Enter your Name'
-      style={styles.TextInput}
-      value={name}
-      onChangeText={(text)=>{setName(text)}}
-      />
-      <TextInput
-      placeholder='Enter your email'
-      style={styles.TextInput}
-      value={email}
-      onChangeText={(text)=>{setEmail(text)}}
-      />
-      <TextInput
-      placeholder='Enter your password'
-      secureTextEntry={showPassword}
-      style={styles.TextInput}
-      value={password}
-      onPress={showPasswordFunc}
-      onChangeText={(text)=>{setPassword(text)}}
-      />
-      <View style={{marginBottom:10}}>
-        <Button color={'green'} title='Print Value' onPress={()=>setDisplay(true)}/>
-      </View>
-      <Button title='Clear input Value' onPress={()=>resetFormData()} />
-        <View>
 
-        {
-          display? <View>
-            <Text style={{fontSize:25}}>Your Name is :{name}</Text>
-            <Text style={{fontSize:25}}>Your Email is :{email}</Text>
-            <Text style={{fontSize:25}}>Your password is :{password}</Text>
-          </View>
-          : null
-        }
-        </View> */}
-        {/* <View>
-          <FlatList
-          data={employiesDetails}
-          renderItem={({item})=> <UserData item={item} />}
+
+//     <View style={{flex:1 ,}}>
+//     <StatusBar backgroundColor={'orange'}
+//       barStyle={'default'}
+//      />
+//      <PlatFormComponent/>
+//       {/* <Responsive/> */}
+//       {/* <ButtonComponent/> */}
+//       {/* <RadioButtonComponent/> */}
+//       {/* <DynamicRadioButtons/> */}
+//       {/* <ActivityLoader/> */}
+//       {/* <ModalComponent/> */}
+//        {/* <PressableComponent/> */}
+//       {/* <Text style={{fontSize:30}}>Hello React Native</Text>
+//       <Text style={styles.textbox}>Like</Text>
+//       <Text style={ExStyles.textbox}>Share</Text>
+//       <Text style={{fontSize:30}}>Comment!!!</Text>
+//       <CompanyData/>
+//       <Button title='On Press Event' onPress={fruit}  color={'green'} />
+//       <Text style={{fontSize:30, color:'green'}}>Your name is:{name}</Text> */}
+//       {/* <Text style={{fontSize:25, color:'green', textAlign:'center'}}>Handle Form Data</Text>
+//       <TextInput
+//       placeholder='Enter your Name'
+//       style={styles.TextInput}
+//       value={name}
+//       onChangeText={(text)=>{setName(text)}}
+//       />
+//       <TextInput
+//       placeholder='Enter your email'
+//       style={styles.TextInput}
+//       value={email}
+//       onChangeText={(text)=>{setEmail(text)}}
+//       />
+//       <TextInput
+//       placeholder='Enter your password'
+//       secureTextEntry={showPassword}
+//       style={styles.TextInput}
+//       value={password}
+//       onPress={showPasswordFunc}
+//       onChangeText={(text)=>{setPassword(text)}}
+//       />
+//       <View style={{marginBottom:10}}>
+//         <Button color={'green'} title='Print Value' onPress={()=>setDisplay(true)}/>
+//       </View>
+//       <Button title='Clear input Value' onPress={()=>resetFormData()} />
+//         <View>
+
+//         {
+//           display? <View>
+//             <Text style={{fontSize:25}}>Your Name is :{name}</Text>
+//             <Text style={{fontSize:25}}>Your Email is :{email}</Text>
+//             <Text style={{fontSize:25}}>Your password is :{password}</Text>
+//           </View>
+//           : null
+//         }
+//         </View> */}
+//         {/* <View>
+//           <FlatList
+//           data={employiesDetails}
+//           renderItem={({item})=> <UserData item={item} />}
          
-          />
-          <ScrollView>
-            <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
+//           />
+//           <ScrollView>
+//             <View style={{flex:1,flexDirection:'row',flexWrap:'wrap'}}>
 
-          {
-            employiesDetails.map((items,index)=><Text style={styles.mapList}>{items.name}</Text>)
-          }
-          </View>
-          </ScrollView>
-        </View> */}
-{/* 
-        <View>
-          <SectionList
-          sections={employiesDetails}
-           renderItem={({item})=><Text style={{fontSize:24,marginLeft:20}}>{item}</Text>}
-           renderSectionHeader={({section:{name}})=><Text style={{fontSize:30, color:'red',}}>{name}</Text>}
-          />
-        </View> */}
+//           {
+//             employiesDetails.map((items,index)=><Text style={styles.mapList}>{items.name}</Text>)
+//           }
+//           </View>
+//           </ScrollView>
+//         </View> */}
+// {/* 
+//         <View>
+//           <SectionList
+//           sections={employiesDetails}
+//            renderItem={({item})=><Text style={{fontSize:24,marginLeft:20}}>{item}</Text>}
+//            renderSectionHeader={({section:{name}})=><Text style={{fontSize:30, color:'red',}}>{name}</Text>}
+//           />
+//         </View> */}
 
         
-    </View>
+//      </View>
   );
 
 }
 
 
+const Home =()=>{
+  return(
+    <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
+      <Text style={{fontSize:30}}>
+        Home Screen
+      </Text>
+    </View>
+  )
+}
 
+const Login =(props:any)=>{
+  return(
+    <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
+      <Text style={{fontSize:30}}>
+        Login  Screen
+      </Text>
+      <Button title='Go to Home Page' onPress={()=>props.navigation.navigate("Home")} />
+    </View>
+  )
+}
 
 
 const styles = StyleSheet.create({
