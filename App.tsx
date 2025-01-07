@@ -242,9 +242,6 @@ function App(): React.JSX.Element {
 
 
 
-
-
-
 const styles = StyleSheet.create({
   textbox:{
     fontSize:32,
