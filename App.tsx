@@ -27,6 +27,7 @@ import {NavigationContainer} from "@react-navigation/native"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Home } from './components/Home';
 import { Login } from './components/Login';
+import { TabNavigation } from './components/TabNavigation';
 
 
 function App(): React.JSX.Element {
@@ -127,30 +128,31 @@ function App(): React.JSX.Element {
   ]
   
   return (
+    <TabNavigation/>
 
-    <NavigationContainer>
-      <stack.Navigator
-      screenOptions={{ 
-        headerStyle:{
-          backgroundColor:"green"
-        },
-        headerTintColor:"yellow"
-      }}
-      >
-      <stack.Screen name='Login' component={Login}/>
-      <stack.Screen name='Home' component={Home}
-      options={{
-        // title:"user Login",
-        headerLeft:()=><Button title='Left' onPress={headerFunc}/>,
-        headerRight:()=><Button title='Right' onPress={headerFunc}/>,
-        headerStyle:{
-          backgroundColor:"red"
-        },
-        headerTintColor:"white"
-      }}
-      />
-      </stack.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <stack.Navigator
+    //   screenOptions={{ 
+    //     headerStyle:{
+    //       backgroundColor:"green"
+    //     },
+    //     headerTintColor:"yellow"
+    //   }}
+    //   >
+    //   <stack.Screen name='Login' component={Login}/>
+    //   <stack.Screen name='Home' component={Home}
+    //   options={{
+    //     // title:"user Login",
+    //     headerLeft:()=><Button title='Left' onPress={headerFunc}/>,
+    //     headerRight:()=><Button title='Right' onPress={headerFunc}/>,
+    //     headerStyle:{
+    //       backgroundColor:"red"
+    //     },
+    //     headerTintColor:"white"
+    //   }}
+    //   />
+    //   </stack.Navigator>
+    // </NavigationContainer>
 
     
 

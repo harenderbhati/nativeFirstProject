@@ -1,7 +1,7 @@
 import {Text, View} from 'react-native';
 
 export const Home = (props) => {
-  console.log(props.route.params)
+  // console.log(props.route.params)
   const {name,age}=props.route.params
   
   return (
