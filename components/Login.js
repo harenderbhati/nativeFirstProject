@@ -1,6 +1,7 @@
 import {
     Button,
     Text,
+    TextInput,
     View,
   } from 'react-native';
 
@@ -12,7 +13,8 @@ export const Login =(props)=>{
       <Text style={{fontSize:30}}>
         Login  Screen
       </Text>
-      <Button title='Go to Home Page' onPress={()=>props.navigation.navigate("Home",{name:"Anil Sidhu", age :30})} />
+      <TextInput placeholder='Enter your name' style={{borderRadius:5,borderColor:"red",borderWidth:5, margin:20}} />
+      <Button title='Go to Home Page' onPress={()=>props.navigation.navigate("Home",{name,age})} />
     </View>
   )
 }
