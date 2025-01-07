@@ -25,6 +25,8 @@ import PressableComponent from './components/PressableComponent';
 import PlatFormComponent from './components/PlatformComponent';
 import {NavigationContainer} from "@react-navigation/native"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Home } from './components/Home';
+import { Login } from './components/Login';
 
 
 function App(): React.JSX.Element {
@@ -36,6 +38,11 @@ function App(): React.JSX.Element {
   const [showPassword,setShowPassword]=useState(false)
 
   const stack =createNativeStackNavigator();
+
+  const headerFunc =()=>{
+    console.warn("header btn pressed");
+    
+  }
 
    const fruit =()=>{
     console.warn("Hello world");
@@ -122,9 +129,26 @@ function App(): React.JSX.Element {
   return (
 
     <NavigationContainer>
-      <stack.Navigator>
+      <stack.Navigator
+      screenOptions={{ 
+        headerStyle:{
+          backgroundColor:"green"
+        },
+        headerTintColor:"yellow"
+      }}
+      >
       <stack.Screen name='Login' component={Login}/>
-      <stack.Screen name='Home' component={Home}/>
+      <stack.Screen name='Home' component={Home}
+      options={{
+        // title:"user Login",
+        headerLeft:()=><Button title='Left' onPress={headerFunc}/>,
+        headerRight:()=><Button title='Right' onPress={headerFunc}/>,
+        headerStyle:{
+          backgroundColor:"red"
+        },
+        headerTintColor:"white"
+      }}
+      />
       </stack.Navigator>
     </NavigationContainer>
 
@@ -217,26 +241,8 @@ function App(): React.JSX.Element {
 }
 
 
-const Home =()=>{
-  return(
-    <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
-      <Text style={{fontSize:30}}>
-        Home Screen
-      </Text>
-    </View>
-  )
-}
 
-const Login =(props:any)=>{
-  return(
-    <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
-      <Text style={{fontSize:30}}>
-        Login  Screen
-      </Text>
-      <Button title='Go to Home Page' onPress={()=>props.navigation.navigate("Home")} />
-    </View>
-  )
-}
+
 
 
 const styles = StyleSheet.create({
