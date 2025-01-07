@@ -2,6 +2,7 @@ import { StyleSheet, View, Text } from "react-native"
 import {NavigationContainer} from "@react-navigation/native"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { useEffect, useState } from "react";
 
 
 export const TabNavigation =()=>{

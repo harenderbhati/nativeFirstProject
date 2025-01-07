@@ -28,6 +28,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { TabNavigation } from './components/TabNavigation';
+import { ApiCalling } from './components/ApiCalling';
 
 
 function App(): React.JSX.Element {
@@ -128,7 +129,9 @@ function App(): React.JSX.Element {
   ]
   
   return (
-    <TabNavigation/>
+
+    <ApiCalling/>
+    // <TabNavigation/>
 
     // <NavigationContainer>
     //   <stack.Navigator
