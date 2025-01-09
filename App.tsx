@@ -29,6 +29,7 @@ import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { TabNavigation } from './components/TabNavigation';
 import { ApiCalling } from './components/ApiCalling';
+import { FormInput } from './components/FormInput';
 
 
 function App(): React.JSX.Element {
@@ -130,7 +131,8 @@ function App(): React.JSX.Element {
   
   return (
 
-    <ApiCalling/>
+    <FormInput/>
+    // <ApiCalling/>
     // <TabNavigation/>
 
     // <NavigationContainer>
