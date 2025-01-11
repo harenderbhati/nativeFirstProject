@@ -10,6 +10,19 @@ export const ApiTable = () => {
     result = await result.json();
     setData(result);
   };
+
+  const deleteUser= async(id)=>{
+    const url = 'http://10.0.2.2:3000/users';
+    let resut = await fetch(`${url}/${id}`, {
+        method:"delete"
+    });
+    resut= await resut.json()
+    if (resut){
+        console.warn("User Deleted!!!")
+    }
+    getApiData()
+  }
+
   useEffect(() => {
     getApiData();
   }, []);
@@ -44,7 +57,7 @@ export const ApiTable = () => {
                 <Text>{item.email}</Text>
               </View> */}
               <View style={{flex: 1}}>
-                <Button title="Delete" />
+                <Button onPress={()=> deleteUser(item.id)} title="Delete" />
               </View>
               <View style={{flex: 1}}>
                 <Button title="Update" />
