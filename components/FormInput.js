@@ -50,6 +50,9 @@ export const FormInput = () => {
       },
       body: JSON.stringify({name, age, email}),
     });
+    setName("")
+    setAge(0)
+    setEmail("")
   };
 
   return (

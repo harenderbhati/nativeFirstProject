@@ -1,8 +1,10 @@
 import {useEffect, useState} from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text, Button ,Modal} from 'react-native';
 
 export const ApiTable = () => {
   const [data, setData] = useState([]);
+  const [showModal,setShowModal]=useState(false)
+  const [selectedUsers,setSelectedusers]=useState( undefined)
 
   const getApiData = async () => {
     const url = 'http://10.0.2.2:3000/users';
@@ -26,6 +28,12 @@ export const ApiTable = () => {
   useEffect(() => {
     getApiData();
   }, []);
+
+  const updateUser=(data)=>{
+      setShowModal(true)
+      setSelectedusers(data)
+  }
+
 
   return (
     <View style={styles.container}>
@@ -60,11 +68,24 @@ export const ApiTable = () => {
                 <Button onPress={()=> deleteUser(item.id)} title="Delete" />
               </View>
               <View style={{flex: 1}}>
-                <Button title="Update" />
+                <Button onPress={()=>updateUser(item)} title="Update" />
               </View>
             </View>
           ))
         : null}
+
+          //----------Modal for the update Api---------------------
+          <Modal visible={showModal} transparent={true} >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+              <Text style={styles.textData}>Dummy Data</Text>
+              <View style={{marginTop:10}}>
+              <Button onPress={()=>setShowModal(false)}  title='Close' />
+              </View>
+              </View>
+            </View>
+          </Modal>
+
     </View>
   );
 };
@@ -81,4 +102,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'orange',
     margin: 5,
   },
+  centeredView:{
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  modalView:{
+    backgroundColor:"orange",
+    padding:60,
+    borderRadius:5,
+    elevation:10,
+    opacity:0.80,
+  },
+  textData:{
+    fontSize:30
+  }
 });
