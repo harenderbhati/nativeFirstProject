@@ -64,7 +64,7 @@ export const ApiTable = () => {
               {/* <View style={{flex: 1}}>
                 <Text>{item.email}</Text>
               </View> */}
-              <View style={{flex: 1}}>
+              <View key={index} style={{flex: 1}}>
                 <Button onPress={()=> deleteUser(item.id)} title="Delete" />
               </View>
               <View style={{flex: 1}}>
@@ -76,19 +76,26 @@ export const ApiTable = () => {
 
           //----------Modal for the update Api---------------------
           <Modal visible={showModal} transparent={true} >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-              <Text style={styles.textData}>Dummy Data</Text>
-              <View style={{marginTop:10}}>
-              <Button onPress={()=>setShowModal(false)}  title='Close' />
-              </View>
-              </View>
-            </View>
+            <UserModal  setShowModal={setShowModal} selectedUsers={selectedUsers} />
           </Modal>
 
     </View>
   );
 };
+
+
+ const UserModal =(props)=>{
+  return(
+    <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+              <Text style={styles.textData}>{props.selectedUsers.name}</Text>
+              <View style={{marginTop:10}}>
+              <Button onPress={()=>props.setShowModal(false)}  title='Close' />
+              </View>
+              </View>
+            </View>
+  )
+ }
 
 const styles = StyleSheet.create({
   container: {
