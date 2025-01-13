@@ -52,7 +52,7 @@ export const ApiTable = () => {
 
       {data.length
         ? data.map((item, index) => (
-            <View style={styles.dataWraper}>
+            <View key={index} style={styles.dataWraper}>
               
 
               <View style={{flex: 1}}>
@@ -64,7 +64,7 @@ export const ApiTable = () => {
               {/* <View style={{flex: 1}}>
                 <Text>{item.email}</Text>
               </View> */}
-              <View key={index} style={{flex: 1}}>
+              <View  style={{flex: 1}}>
                 <Button onPress={()=> deleteUser(item.id)} title="Delete" />
               </View>
               <View style={{flex: 1}}>
@@ -74,9 +74,9 @@ export const ApiTable = () => {
           ))
         : null}
 
-          //----------Modal for the update Api---------------------
+         
           <Modal visible={showModal} transparent={true} >
-            <UserModal  setShowModal={setShowModal} selectedUsers={selectedUsers} />
+            <UserModal  setShowModal={setShowModal} selectedUsers={selectedUsers} getApiData={getApiData} />
           </Modal>
 
     </View>
@@ -98,16 +98,36 @@ export const ApiTable = () => {
 
       },[props.selectedUsers])
 
+
+      const updateUserDetails = async ()=>{
+        const url ="http://10.0.2.2:3000/users"
+        const id=props.selectedUsers.id
+        let result = await fetch (`${url}/${id}` , {
+          method:"PUT",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify({name,age})
+        })
+        result= await result.json()
+
+        if(result){
+          props.getApiData()
+          props.setShowModal(false)
+        }
+
+      }
+
         console.warn("Data",name,age)
   return(
     <View style={styles.centeredView}>
               <View style={styles.modalView}>
-              <TextInput style={styles.textData} value={name} />
-              <TextInput style={styles.textData} value={age} />
+              <TextInput style={styles.textData} value={name} onChangeText={(text)=>setName(text)} />
+              <TextInput style={styles.textData} value={age} onChangeText={(text)=>setAge(text)} />
               {/* <TextInput style={styles.textData} /> */}
               <View style={{marginTop:10}}>
                 <View style={{marginBottom:10}}>
-                  <Button title='Update' />
+                  <Button onPress={updateUserDetails} title='Update' />
                 </View>
               <Button onPress={()=>props.setShowModal(false)}  title='Close' />
               </View>
