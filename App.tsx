@@ -31,6 +31,7 @@ import { TabNavigation } from './components/TabNavigation';
 import { ApiCalling } from './components/ApiCalling';
 import { FormInput } from './components/FormInput';
 import { ApiTable } from './components/ApiTable';
+import { SearchBox } from './components/SearchBox';
 
 
 function App(): React.JSX.Element {
@@ -132,8 +133,8 @@ function App(): React.JSX.Element {
   
   return (
    
-
-      <ApiTable/>
+      <SearchBox/>
+      // <ApiTable/>
       // <FormInput/>
    
 
