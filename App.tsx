@@ -32,6 +32,7 @@ import { ApiCalling } from './components/ApiCalling';
 import { FormInput } from './components/FormInput';
 import { ApiTable } from './components/ApiTable';
 import { SearchBox } from './components/SearchBox';
+import { RefComponent } from './components/RefComponent';
 
 
 function App(): React.JSX.Element {
@@ -132,8 +133,9 @@ function App(): React.JSX.Element {
   ]
   
   return (
-   
-      <SearchBox/>
+
+      <RefComponent/>
+      // <SearchBox/>
       // <ApiTable/>
       // <FormInput/>
    
