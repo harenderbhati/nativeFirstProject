@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {StyleSheet, View, Text, Button ,Modal} from 'react-native';
+import {StyleSheet, View, Text, Button ,Modal, TextInput} from 'react-native';
 
 export const ApiTable = () => {
   const [data, setData] = useState([]);
@@ -85,11 +85,30 @@ export const ApiTable = () => {
 
 
  const UserModal =(props)=>{
+
+      const [name,setName]=useState("")
+      const [age,setAge]=useState(undefined)
+     
+
+      useEffect(()=>{
+        if(props.selectedUsers){
+          setName(props.selectedUsers.name)
+          setAge(props.selectedUsers.age.toString())
+        }
+
+      },[props.selectedUsers])
+
+        console.warn("Data",name,age)
   return(
     <View style={styles.centeredView}>
               <View style={styles.modalView}>
-              <Text style={styles.textData}>{props.selectedUsers.name}</Text>
+              <TextInput style={styles.textData} value={name} />
+              <TextInput style={styles.textData} value={age} />
+              {/* <TextInput style={styles.textData} /> */}
               <View style={{marginTop:10}}>
+                <View style={{marginBottom:10}}>
+                  <Button title='Update' />
+                </View>
               <Button onPress={()=>props.setShowModal(false)}  title='Close' />
               </View>
               </View>
@@ -112,16 +131,22 @@ const styles = StyleSheet.create({
   centeredView:{
     flex:1,
     justifyContent:"center",
-    alignItems:"center"
+    alignItems:"center",
+    marginTop:50
   },
   modalView:{
     backgroundColor:"orange",
-    padding:60,
+    padding:20,
     borderRadius:5,
     elevation:10,
     opacity:0.80,
   },
   textData:{
-    fontSize:30
+    // fontSize:30,
+    borderColor:"white",
+    borderRadius:5,
+    backgroundColor:"#ccc",
+    width:300,
+    margin:10
   }
 });
