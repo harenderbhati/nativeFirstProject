@@ -33,6 +33,8 @@ import { FormInput } from './components/FormInput';
 import { ApiTable } from './components/ApiTable';
 import { SearchBox } from './components/SearchBox';
 import { RefComponent } from './components/RefComponent';
+import { AsyncStorageComponent } from './components/AsyncStorageComponent';
+
 
 
 function App(): React.JSX.Element {
@@ -133,8 +135,8 @@ function App(): React.JSX.Element {
   ]
   
   return (
-
-      <RefComponent/>
+      <AsyncStorageComponent/>
+      // <RefComponent/>
       // <SearchBox/>
       // <ApiTable/>
       // <FormInput/>
