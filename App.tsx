@@ -10,7 +10,8 @@ import {
   FlatList,
   ScrollView,
   SectionList,
-  StatusBar
+  StatusBar,
+  Image,
 } from 'react-native';
 import CompanyData from './components/CompanyData';
 import ExStyles from './style'
@@ -34,6 +35,8 @@ import { ApiTable } from './components/ApiTable';
 import { SearchBox } from './components/SearchBox';
 import { RefComponent } from './components/RefComponent';
 import { AsyncStorageComponent } from './components/AsyncStorageComponent';
+import { Header } from './components/Redux/Header';
+import { Products } from './components/Redux/Products';
 
 
 
@@ -133,9 +136,58 @@ function App(): React.JSX.Element {
    
     
   ]
+
+  const products=[
+    {
+      name:"Samsung Mobile",
+      color:"white",
+      price:3000,
+      image:"https://help.rangeme.com/hc/article_attachments/360006928633/what_makes_a_good_product_image.jpg"
+    },
+    {
+      name:"Iphone",
+      color:"golden",
+      price:93000,
+      image:"https://help.rangeme.com/hc/article_attachments/360006928633/what_makes_a_good_product_image.jpg"
+    },
+    {
+      name:"Lava Mobile",
+      color:"Blue",
+      price:9000,
+      image:"https://help.rangeme.com/hc/article_attachments/360006928633/what_makes_a_good_product_image.jpg"
+    },
+    {
+      name:"Vivo Mobile",
+      color:"red",
+      price:7000,
+      image:"https://help.rangeme.com/hc/article_attachments/360006928633/what_makes_a_good_product_image.jpg"
+    },
+    {
+      name:"Oppo Mobile",
+      color:"green",
+      price:13000,
+      image:"https://help.rangeme.com/hc/article_attachments/360006928633/what_makes_a_good_product_image.jpg"
+    },
+    {
+      name:"Infinix Mobile",
+      color:"white",
+      price:88000,
+      image:"https://help.rangeme.com/hc/article_attachments/360006928633/what_makes_a_good_product_image.jpg"
+    }
+  ]
   
   return (
-      <AsyncStorageComponent/>
+    <View >
+      <Text>Hello world</Text>
+      <Header/>
+      <ScrollView>
+        {
+          products.map((item,index)=><Products item={item} index={index}/>)
+        }
+      </ScrollView>
+      
+    </View>
+      // <AsyncStorageComponent/>
       // <RefComponent/>
       // <SearchBox/>
       // <ApiTable/>
